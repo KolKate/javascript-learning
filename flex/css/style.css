@@ -1,0 +1,99 @@
+/*@import 'reset.css'; чтоб не писать в html*/
+
+
+/*img {
+	width: 100%;
+}
+
+.wrapper {
+	width: 60%;
+	margin: auto;
+	display: block;
+
+}
+
+header a img {
+    height: 100px;
+    width: auto;
+}
+
+.menu-login {
+	float: left;
+}
+
+aside {
+    width: 200px;
+}
+
+.main-content {
+	float: left;
+	width: 70%;
+    min-width: 300px;
+}
+
+footer {
+    clear: both;
+}
+*/
+.container{
+	display: flex;
+	flex-flow: row nowrap;
+	
+}
+.wrapper {
+	width: 98%;
+	background-color: rgba(0,0,0,.1);
+	padding: 0 1%;
+	font-family: sans-serif;
+}
+.logo img{
+	height: 40px;
+	width: auto;
+	margin: 5px 5px 5px 0;
+}
+
+.menu-login{
+	flex: 1;
+	
+	font-weight: bold;
+	font-size: 90%;
+}
+.main-content{
+	flex: 5;
+
+	
+}
+.menu-login li{
+padding: 2px 5px;
+border: 1px solid black;
+border-radius: 5px;
+text-align: center;
+background-color: rgba(0,0,255,0.1);
+margin-bottom: 5px;
+}
+.menu-login a{
+	text-decoration: none;
+	color: white;
+    
+}
+.main-content img{
+	width: 100%;
+}
+.main-content h1{
+	font-size: 120%;
+}
+.menu-login aside{
+	margin-top: 10px;
+	margin: 10px 10px 0 0;
+}
+footer{
+padding: 10px 0;
+border-top: 2px solid black;
+margin: 20px 0 0 0;
+}
+
+@media (max-width: 600px){
+	.container{
+	flex-flow: column;
+	}
+}
