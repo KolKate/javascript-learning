@@ -5,3 +5,4 @@ console.info(a);
 }
 
 A();
+//nothing
