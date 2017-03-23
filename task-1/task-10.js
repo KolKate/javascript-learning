@@ -13,4 +13,4 @@ function C(){
 var a = new A();
 var b = new B();
 
-C.call(b);
+C.call(a);

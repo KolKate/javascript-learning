@@ -3,7 +3,7 @@ function A(){
 }
 
 function B(){
-  this.a = new A();
+  this.a = A();
 }
 
 var a = new B();

@@ -2,7 +2,7 @@ function A(){
   B();
 }
 
-function B(a){
+function B(){
   function C(){
     console.info(a);
   }
@@ -10,4 +10,4 @@ function B(a){
 }
 
 var a = 'Success!';
-A();
+A(a);

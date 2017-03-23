@@ -1,6 +1,7 @@
 function A(){
-  console.info(a);
-  var a = 'Success!';
+var a = 'Success!';  
+console.info(a);
+  
 }
 
 A();

@@ -3,8 +3,8 @@ function A(){
 }
 
 function B(){
-  var a = new A();
+  this.a = new A();
 }
 
 var a = new B();
-console.info(a.a);
+console.info(a.a.a);
