@@ -1,5 +1,5 @@
 function A(){
-  var a = 'Success!';
+  this.a = 'Success!';
 }
 
 function B(){

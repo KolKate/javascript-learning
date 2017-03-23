@@ -2,7 +2,7 @@ function A(a){
   B();
 }
 
-function B(a){
+function B(){
   console.info(a);
 }
 
