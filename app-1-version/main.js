@@ -59,5 +59,44 @@ function Markup(){
 
 }
 
+function Logs(){
+	this.l = function(messages){
+		if(messages instanceof Array){
+			for(var i = 0; i<messages.length; i++){
+				console.log(messages[i]);
+			}
+		}else{console.log(messages);}
+	}
+	this.i = function(messages){
+		if(messages instanceof Array){
+			for(var i = 0; i<messages.length; i++){
+				console.info(messages[i]);
+			}
+		}else{console.info(messages);}
+	}
+	this.w = function(messages){
+		if(messages instanceof Array){
+			for(var i = 0; i<messages.length; i++){
+				console.warn(messages[i]);
+			}
+		}else{console.warn(messages);}
+	}
+	this.e = function(messages){
+		if(messages instanceof Array){
+			for(var i = 0; i<messages.length; i++){
+				console.error(messages[i]);
+			}
+		}else{console.error(messages);}
+	}
+	this.ts = function(name){
+		console.time(name);
+	}
+	this.te = function(name){
+		console.timeEnd(name);
+
+	}
+}
+
 var data = new Data();
 var markup = new Markup();
+var log = new Logs();
