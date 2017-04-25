@@ -32,7 +32,7 @@
       $menu.append($item);
     });
 
-    $menu.children('li:first-child')
+    $menu.children('li:last-child')
       .find('a')
       .click();
   }

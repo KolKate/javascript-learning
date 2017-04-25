@@ -23,6 +23,7 @@ function AddTodo() {
     event.preventDefault();
     self.add($form, $addField);
   });
+
 }
 
 AddTodo.prototype.add = function($form, $addField) {

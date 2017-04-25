@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Learning</title>
+  </head>
+<body>
+ <div id="div">
+ 	<a href="/a">ClickA</a>
+ 	<a href="b" target="_blank">ClickB</a>
+ </div>
+
+  <script src="vendors/jquery/jquery.js"></script>
+  <script>
+$(document).ready(function(){
+	var data = {
+		hello: 'World'
+	};
+	$.ajax({
+		url: 'http://api.datsko.it?a=b',
+		type: 'POST',
+		data: data,
+		onbefore: 
+	}).done(function(result){
+		console.log(result)
+	});
+});
+  </script>
+</body>
+</html>

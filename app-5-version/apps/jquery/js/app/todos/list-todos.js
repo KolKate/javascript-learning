@@ -39,12 +39,14 @@ ListTodos.prototype.getList = function() {
     });
 
     var $todoCellText = $('<td/>');
-    $todoCellText.html(todo.text);
-    $todoCellText.click(function(event) {
-      event.preventDefault();
-      self.doCheck($todo, $todoCheckbox, $todoCellText, todos, todo, index);
-    });
+    $todoCellText.html('<span>' + todo.text + '</span>');
 
+    var $todoInput = $('<input/>');
+    //$todoInput.attr('placeholder', todo.text);
+    $todoInput.val(todo.text);
+    $todoInput.hide();
+
+    
     var $todoCellActions = $('<td/>');
     $todoCellActions.width(30);
 
@@ -58,18 +60,60 @@ ListTodos.prototype.getList = function() {
       self.delete(index, todos);
     });
 
+      var $todoActionEdit = $('<button type="button"/>');
+    $todoActionEdit.addClass('btn btn-info btn-xs')
+      .html('<span class="glyphicon glyphicon-pencil"></span>')
+      .click(function(event) {
+      self.edit($todoCellText,$todoActionEdit,todos,todo,index, $todoInput);
+      $todoInput.focus();
+    });
+
     if (todo.checked) {
       $todo.addClass('success');
       $todoCellText.addClass('checked');
     }
 
     $todoCellCheckbox.append($todoCheckbox);
+    $todoCellActions.append($todoActionEdit);
     $todoCellActions.append($todoActionDelete);
     $todo.append($todoCellCheckbox);
     $todo.append($todoCellText);
+    $todoCellText.append($todoInput);
     $todo.append($todoCellActions);
     $todosBody.append($todo);
   });
+};
+
+ListTodos.prototype.edit = function(
+  $todoCellText,
+  $todoActionEdit,
+  todos,
+  todo,
+  index,
+  $todoInput
+) {
+  var toChange = $todoActionEdit.find('span').hasClass('glyphicon glyphicon-pencil');
+  var changeClass = $todoActionEdit.find('span');
+
+  if (toChange) {
+
+    changeClass.removeClass('glyphicon glyphicon-pencil');
+    changeClass.addClass('glyphicon glyphicon-ok-sign');
+    $todoCellText.find('span').hide();
+    $todoInput.show();
+
+  } else{
+    $todoCellText.find('span').show();
+    $todoInput.hide();
+    changeClass.removeClass('glyphicon glyphicon-ok-sign');
+    changeClass.addClass('glyphicon glyphicon-pencil');
+
+   todos[index].text = $todoInput.val();
+   data.update('todos', JSON.stringify(todos));
+   events.send('get-todos-list');
+  }
+
+ 
 };
 
 ListTodos.prototype.doCheck = function(
@@ -80,7 +124,7 @@ ListTodos.prototype.doCheck = function(
   todo,
   index
 ) {
-  var isChecked = $todoCheckbox.hasClass('glyphicon glyphicon-check')
+  var isChecked = $todoCheckbox.hasClass('glyphicon glyphicon-check');
 
   if (isChecked) {
     $todo.removeClass('success');
