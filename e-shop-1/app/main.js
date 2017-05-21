@@ -8,6 +8,9 @@
     }
 
     $('.category a').click(function() {
+      $('.category li').removeClass('active');
+      $(this).closest('li').addClass('active');
+
       var category = dataBase.categoryById($(this).attr('id'));
       var products = category.products;
       var productContainer = $('.products');
@@ -15,14 +18,15 @@
       for(var i = 0; i<products.length;i++){
         productContainer.append('<div class="col-sm-6 col-md-4">'+
          '<div class="thumbnail">'+
-          '<img src="..." alt="...">'+
+          '<img src="assets/images/'+products[i].imgUrl+'" alt="'+products[i].name+'">'+
            '<div class="caption">'+
            '<h3>'+products[i].name+'</h3>'+
-           '<p>'+products[i].price+'</p>'+
-           '<p><a href="#" class="btn btn-primary" role="button" id="'+products[i].id+'">Button</a></p></div></div></div>'
+           '<p>'+products[i].price+' UAH</p>'+
+           '<p><a href="#" class="btn btn-primary" role="button" id="'+products[i].id+'">Add to cart</a></p></div></div></div>'
       );}
+    });
 
-    })
+    $('.category a#all').click();
 
   }
 
