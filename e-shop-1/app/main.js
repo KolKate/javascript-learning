@@ -20,7 +20,7 @@
          '<div class="thumbnail">'+
           '<img src="assets/images/'+products[i].imgUrl+'" alt="'+products[i].name+'">'+
            '<div class="caption">'+
-           '<h3>'+products[i].name+'</h3>'+
+           '<h3>'+ products[i].name+'</h3>'+
            '<p>'+products[i].price+' UAH</p>'+
            '<p><a href="#" class="btn btn-primary" role="button" id="'+products[i].id+'">Add to cart</a></p></div></div></div>'
       );}
